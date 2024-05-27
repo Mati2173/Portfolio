@@ -1,0 +1,184 @@
+/* NAVBAR SECTION */
+.header {
+    position: sticky;
+    top: 0;
+    max-width: 950px;
+    z-index: 10;
+}
+
+.nav-container {
+    background-color: #111A2780;
+    backdrop-filter: blur(5px);
+    padding: 15px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.navbar {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-item > a {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* ABOUT ME SECTION */
+.description {
+    margin: 35px 0;
+    font-size: 1.2em;
+}
+
+.contact-email {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact-email > * {
+    margin: 0 5px;
+}
+
+.contact-email .icon {
+    width: 70px;
+    height: auto;
+    margin-left: 0;
+}
+
+.contact-email .input {
+    width: 60%;
+    min-width: 245px;
+}
+
+.contact-email .btn img {
+    width: 40px;
+    height: auto;
+}
+
+.social-links {
+    margin: 25px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-links .btn-round {
+    margin: 0 5%;
+}
+
+.social-links .btn img {
+    width: 32px;
+    height: auto;
+}
+
+/* SKILLS SECTION */
+.skills-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.sk-item {
+    display: flex;
+    align-items: center;
+}
+
+.sk-item p {
+    display: inline;
+    margin: 0;
+    padding: 0 0 0 10px;
+}
+
+.sk-item img {
+    width: 20px;
+    height: 20px;
+}
+
+/* PROJECTS SECTION */
+.project {
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project:first-child {
+    margin-top: 0;
+}
+
+.project:last-child {
+    margin-bottom: 0;
+}
+
+.project-image {
+    width: 40%;
+    margin-right: 20px;
+}
+
+.project-info {
+    width: 60%;
+    margin-left: 20px;
+}
+
+.project-info h3 {
+    margin-top: 0;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.project-info .btn img {
+    width: 40px;
+    height: auto;
+}
+
+/* CONTACT SECTION */
+.contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+        "name lastname"
+        "email email"
+        "message message"
+        "button button";
+    gap: 12px;
+}
+
+.form-input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-input-container label {
+    margin: 5px 0;
+}
+
+.form-input-container:first-child {
+    grid-area: name;
+}
+
+.form-input-container:nth-child(2) {
+    grid-area: lastname;
+}
+
+.form-input-container:nth-child(3) {
+    grid-area: email;
+}
+
+.form-input-container:nth-child(4) {
+    grid-area: message;
+}
+
+.form-input-container:last-child {
+    grid-area: button;
+    margin: auto;
+}
