@@ -51,7 +51,6 @@
 
 .contact-email .input {
     width: 60%;
-    min-width: 245px;
 }
 
 .contact-email .btn img {
@@ -85,6 +84,8 @@
 .sk-item {
     display: flex;
     align-items: center;
+    box-sizing: border-box;
+    min-width: 170px;
 }
 
 .sk-item p {
@@ -101,9 +102,12 @@
 /* PROJECTS SECTION */
 .project {
     margin: 25px 0;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 3px solid #334155;
+    border-radius: 10px;
 }
 
 .project:first-child {
@@ -181,4 +185,61 @@
 .form-input-container:last-child {
     grid-area: button;
     margin: auto;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 990px) {
+    body {
+        margin: 0 15px;
+    }
+
+    section:last-child {
+        padding-bottom: 60px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .skills-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-form {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "name"
+            "lastname"
+            "email"
+            "message"
+            "button";
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    .header {
+        display: none;
+    }
+
+    .contact-email .icon {
+        display: none;
+    }
+
+    .project {
+        flex-direction: column;
+    }
+
+    .project-image {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .project-info {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+    }
 }
