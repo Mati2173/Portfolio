@@ -1,0 +1,131 @@
+body {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    color: #E2E8F0;
+    background: linear-gradient(#000A, transparent), #112044;
+    background-attachment: fixed;
+}
+
+h1 {font-size: 2.5em;}
+
+h2 {font-size: 2em;}
+
+h3 {font-size: 1.6em;}
+
+p {font-size: 1em;}
+
+a, button {font-size: 1em;}
+
+label {font-size: 1.2em;}
+
+textarea {resize: none;}
+
+section {padding: 60px 0;}
+
+section:last-child {padding-bottom: 120px;}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.title {
+    margin-bottom: 25px;
+}
+
+.title :is(h1, h2) {
+    display: inline;
+    vertical-align: middle;
+}
+
+.title img {
+    width: 70px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.style-box {
+    padding: 16px;
+    color: inherit;
+    background-color: #0F172A;
+    border: 3px solid #334155;
+    border-radius: 10px;
+    transition: border .3s;
+}
+
+.style-box:hover {
+    border-color:#465C7C;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    background-color: #17306B7C;
+    position: relative;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+.btn:hover {
+    background-color: #17306B;
+}
+
+.btn-round {
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.btn-rectangular {
+    padding: 0;
+    height: 60px;
+    width: 120px;
+    min-width: 82px;
+    border: none;
+    border-radius: 10px;
+}
+
+.tooltip {
+    visibility: hidden;
+    width: 120px;
+    min-width: 82px;
+    background-color: #E2E8F0;
+    color: #0F172A;
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px 0;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.btn:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.input, .input-btn {
+    font-size: 1.2em;
+    font-family: inherit;
+}
+
+.input:focus {
+    border-color: #465C7C;
+    outline: none;
+}
+
+.separator {
+    width: 100%;
+    height: 2px;
+    background-color: #3341557C;
+    box-shadow: 0 0 8px #17306B7C,
+                0 0 16px #17306b44;
+}
