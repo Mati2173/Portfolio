@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matias Gomez</title>
+    <link rel="shortcut icon" href="images/M.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <ul class="navbar">
+                <li class="nav-item"><a href="#about-me">Sobre mi</a></li>
+                <li class="nav-item"><a href="#skills">Habilidades</a></li>
+                <li class="nav-item"><a href="#projects">Proyectos</a></li>
+                <li class="nav-item"><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main">
+        <section id="about-me">
+            <div class="title">
+                <img src="images/icons/dev.png" alt="Logo Dev">
+                <h1>Matías Gómez</h1>
+            </div>
+            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, aliquid repellat asperiores quibusdam deleniti ad atque sapiente quis ducimus vero inventore ea nemo, molestias magnam facere accusantium minima. Modi, et!</p>
+            <div class="find-me-container">
+                <div class="contact-email">
+                    <img class="icon" src="images/icons/email.png" alt="Logo Email">
+                    <input class="style-box input" readonly value="matigomez2173@gmail.com">
+                    <a class="btn btn-rectangular" href="mailto:matigomez2173@gmail.com" target="_blank">
+                        <img src="images/icons/send.png" alt="Logo Enviar">
+                        <span class="tooltip">Enviar email</span>
+                    </a>
+                    <button id="copy-btn" class="btn btn-rectangular">
+                        <img src="images/icons/copy.png" alt="Logo Copiar">
+                        <span id="copy-tooltip" class="tooltip">Copiar</span>
+                    </button>
+                </div>
+                <div class="social-links">
+                    <a class="btn btn-round" href="https://github.com/Mati2173" target="_blank">
+                        <img src="images/icons/github.png" alt="Logo GitHub">
+                    </a>
+                    <a class="btn btn-round" href="https://www.linkedin.com/in/matias-gomez2173/" target="_blank">
+                        <img src="images/icons/linkedin.png" alt="Logo LinkedIn">
+                    </a>
+                    <a class="btn btn-round" href="https://wa.me/+5493875927737" target="_blank">
+                        <img src="images/icons/whatsapp.png" alt="Logo WhatsApp">
+                    </a>
+                </div>
+            </div>
+        </section>
+        <div class="separator"></div>
+        <section id="skills">
+            <div class="title">
+                <img src="images/icons/skills.png" alt="Logo Habilidades">
+                <h2>Habilidades</h2>
+            </div>
+            <h3>Lenguajes de Programación</h3>
+            <div class="skills-section">
+                <div class="style-box sk-item">
+                    <img src="images/skills/java.png" alt="Logo Java">
+                    <p>Java</p>
+                </div>
+                <div class="style-box sk-item">
+                    <img src="images/skills/python.png" alt="Logo Python">
+                    <p>Python</p>
+                </div>
+            </div>
+            <h3>Bases de Datos</h3>
+            <div class="skills-section">
+                <div class="style-box sk-item">
+                    <img src="images/skills/sqlite.png" alt="Logo SQLite">
+                    <p>SQLite</p>
+                </div>
+                <div class="style-box sk-item">
+                    <img src="images/skills/mysql.png" alt="Logo MySQL">    
+                    <p>MySQL</p>
+                </div>
+                <div class="style-box sk-item">
+                    <img src="images/skills/postgresql.png" alt="Logo PostgreSQL">
+                    <p>PostgreSQL</p>
+                </div>
+            </div>
+            <h3>Programación Web</h3>
+            <div class="skills-section">
+                <div class="style-box sk-item">
+                    <img src="images/skills/django.png" alt="Logo Django">
+                    <p>Django</p>
+                </div>
+                <div class="style-box sk-item">
+                    <img src="images/skills/html.png" alt="Logo HTML">
+                    <p>HTML</p>
+                </div>
+                <div class="style-box sk-item">
+                    <img src="images/skills/css.png" alt="Logo CSS">
+                    <p>CSS</p>
+                </div>
+                <div class="style-box sk-item">
+                    <img src="images/skills/javascript.png" alt="Logo JavaScript">
+                    <p>JavaScript</p>
+                </div>
+            </div>
+            <h3>Control de Versiones</h3>
+            <div class="skills-section">
+                <div class="style-box sk-item">
+                    <img src="images/skills/git.png" alt="Logo Git">
+                    <p>Git</p>
+                </div>
+                <div class="style-box sk-item">
+                    <img src="images/skills/github.png" alt="Logo GitHub">
+                    <p>GitHub</p>
+                </div>
+            </div>
+            <h3>Metodologías Ágiles y Gestión de Proyectos</h3>
+            <div class="skills-section agile-m">
+                <div class="style-box sk-item">
+                    <img src="images/skills/scrum.png" alt="Logo Scrum">
+                    <p>Scrum</p>
+                </div>
+                <div class="style-box sk-item">
+                    <img src="images/skills/jira.png" alt="Logo Jira">
+                    <p>Jira Software</p>
+                </div>
+            </div>
+        </section>
+        <div class="separator"></div>
+        <section id="projects">
+            <div class="title">
+                <img src="images/icons/project.png" alt="Logo Proyectos">
+                <h2>Proyectos</h2>
+            </div>
+
+            <div class="projects-container">
+                <div class="project">
+                    <div class="project-image">
+                        <img src="images/projects/cuadrado.jpg" alt="">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-name">Proyecto N°1</h3>
+                        <p class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus sint culpa repudiandae saepe sit autem quae reprehenderit reiciendis magni necessitatibus!</p>
+                        <h4 class="technologies-title">Tecnologías utilizadas:</h4>
+                        <ul class="project-technologies">
+                            <li>Tecnología N°1</li>
+                            <li>Tecnología N°2</li>
+                        </ul>
+                        <a class="btn btn-rectangular" href="#" target="_blank">
+                            <img src="images/icons/source-code.png" alt="Logo Codigo Fuente">
+                            <span class="tooltip">Ver Código</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-image">
+                        <img src="images/projects/cuadrado.jpg" alt="">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-name">Proyecto N°2</h3>
+                        <p class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus sint culpa repudiandae saepe sit autem quae reprehenderit reiciendis magni necessitatibus!</p>
+                        <h4 class="technologies-title">Tecnologías utilizadas:</h4>
+                        <ul class="project-technologies">
+                            <li>Tecnología N°1</li>
+                            <li>Tecnología N°2</li>
+                            <li>Tecnología N°3</li>
+                        </ul>
+                        <a class="btn btn-rectangular" href="#" target="_blank">
+                            <img src="images/icons/source-code.png" alt="Logo Codigo Fuente">
+                            <span class="tooltip">Ver Código</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-image">
+                        <img src="images/projects/cuadrado.jpg" alt="">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-name">Proyecto N°3</h3>
+                        <p class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus sint culpa repudiandae saepe sit autem quae reprehenderit reiciendis magni necessitatibus!</p>
+                        <h4 class="technologies-title">Tecnologías utilizadas:</h4>
+                        <ul class="project-technologies">
+                            <li>Tecnología N°1</li>
+                        </ul>
+                        <a class="btn btn-rectangular" href="#" target="_blank">
+                            <img src="images/icons/source-code.png" alt="Logo Codigo Fuente">
+                            <span class="tooltip">Ver Código</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="separator"></div>
+        <section id="contact">
+            <div class="title">
+                <img src="images/icons/contact.png" alt="Logo Contacto">
+                <h2>Contacto</h2>
+            </div>
+            <form class="contact-form">
+                <div class="form-input-container">
+                    <label for="fst-name">Nombre</label>
+                    <input class="style-box input" type="text" name="fst-name" placeholder="John" required>
+                </div>
+                <div class="form-input-container">
+                    <label for="lst-name">Apellido</label>
+                    <input class="style-box input" type="text" name="lst-name" placeholder="Doe" required>
+                </div>
+                <div class="form-input-container">
+                    <label for="email">E-mail</label>
+                    <input class="style-box input" type="email" name="email" placeholder="example@mail.com" required>
+                </div>
+                <div class="form-input-container">
+                    <label for="message">Mensaje</label>
+                    <textarea class="style-box input" name="message" rows="5" placeholder="Deja acá tu mensaje" required></textarea>
+                </div>
+                <div class="form-input-container">
+                    <input class="btn btn-rectangular input-btn" type="submit" value="Enviar">
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
