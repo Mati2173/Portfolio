@@ -1,11 +1,13 @@
 /* ELEMENTOS HTML UTILIZADOS */
-let copyBtn = document.getElementById("copy-btn");
-let copyTooltip = document.getElementById("copy-tooltip");
-let form = document.querySelector("form");
-let closeModalBtn = document.querySelector(".close-modal");
+const copyBtn = document.getElementById("copy-btn");
+const copyTooltip = document.getElementById("copy-tooltip");
+const form = document.querySelector("form");
+const closeModalBtn = document.querySelector(".close-modal");
+const modalContainer = document.querySelector(".modal-container");
+const modalLoader = document.querySelector(".modal-loader");
+const modal = document.querySelector(".modal");
 
-
-/* FUNCIONES PARA EL DESPLAZAMIENTO DE LAS IMAGENES */
+/* FUNCIONES PARA EL BOTÓN "COPIAR" */
 
 // Copia mi Email al portapapeles del usuario
 function copyEmail() {
@@ -19,55 +21,83 @@ function restoreCopyMsg() {
         copyTooltip.innerText = "Copiar";
 }
 
-// Abre el Modal y le coloca la información dependiendo si la información es válida o no
-function openModal(isSucess, info) {
-    document.querySelector(".modal-client-name").textContent = `${info["fst-name"]} ${info["lst-name"]}`;
-    
-    if (isSucess) {
-        document.querySelector(".modal-description").textContent = `Gracias por ponerte en contacto conmigo. Pronto estaré leyendo tu mensaje y te responderé a la dirección de correo que me indicaste: ${info["email"]}`;
+/* FUNCIONES PARA EL FUNCIONAMIENTO DEL FORMULARIO */
+
+// Maneja el envio del formulario de contacto
+async function formSubmit(e) {
+    e.preventDefault()
+    showModalLoader();
+
+    const formData = new FormData(e.target);
+    const { isValid, data } = validateFormData(formData);
+
+    if (isValid) {
+        try {
+            const response = await executeEmailSend(data);
+            console.log("SUCCESS", response.status, response.text);
+            showModalResult(true, data);
+        } catch (error) {
+            console.log("FAILED...", error);
+            showModalResult(false, data);
+        }
     }
     else {
-        document.querySelector(".modal-description").textContent = ":( Algo salió mal al enviarme tu mensaje. Prueba intentando nuevamente más tarde, o contactame directamente a mi";
+        showModalResult(false, data);
     }
-
-    document.querySelector(".modal-container").classList.add("show");
 }
 
-// Cierra el modal y reinicia el formulario
-function closeModal() {
-    document.querySelector(".modal-container").classList.remove("show");
-    form.reset();
-}
+// Valida y formatea los datos del formulario
+function validateFormData(formData) {
+    const data = {};
+    let isValid = true;
 
-// Me envia un correo si la información es válida y lo muestra en el modal
-function sendEmail(e) {
-    e.preventDefault();
-    
-    const formData = new FormData(e.target)
-    const data = {}
-    let valid = true;
-    
     formData.forEach((value, key) => {
-        data[key] = value;
-        if(value == "")
-            valid = false;
+        data[key] = value.trim()
+        if (!value) {
+            isValid = false;
+        }
     });
+
+    return { isValid, data };
+}
+
+// Ejecuta el envio del correo y retorna una promesa que resuelve o rechaza con un objeto que contiene el estado y el texto
+async function executeEmailSend(data) {
+    return emailjs.send("default_service", "template_9av6ppa", data);
+}
+
+// Muestra una pantalla de carga en el contenedor del Modal
+function showModalLoader() {
+    modalContainer.classList.add('show');
+    modalLoader.classList.add('show');
+    closeModalBtn.disabled = true;
+}
+
+function closeModalLoader() {
+    modalLoader.classList.remove('show');
+    closeModalBtn.disabled = false;
+}
+
+// Completa los datos del Modal (dependiendo de un estado) y lo muestra
+function showModalResult(isSuccess, data) {
+    closeModalLoader();
     
-    if(valid) {
-        emailjs.send("default_service", "template_9av6ppa", data).then(
-            (response) => {
-                console.log("SUCCESS", response.status, response.text);
-                openModal(true, data);
-            },
-            (error) => {
-                console.log("FAILED...", error);
-                openModal(false, data);
-            },
-        );
-    }
-    else {
-        openModal(false, data);
-    }
+    const fullName = data["fst-name"] && data["lst-name"] ? `${data["fst-name"]} ${data["lst-name"]}` : "lo siento";
+    document.querySelector(".modal-client-name").textContent = fullName;
+    
+    const description = isSuccess
+        ? `Gracias por ponerte en contacto conmigo. Pronto estaré leyendo tu mensaje y te responderé a la dirección de correo que me indicaste: ${data["email"]}`
+        : ":( Algo salió mal al enviarme tu mensaje. Prueba intentando nuevamente más tarde, o contactame directamente a mi"
+    document.querySelector(".modal-description").textContent = description;
+    
+    modal.classList.add('show');
+}
+
+// Cierra el Modal y reinicia el formulario
+function closeModal() {
+    modal.classList.remove("show");
+    modalContainer.classList.remove("show");
+    form.reset();
 }
 
 // Inicializando EmailJS
@@ -82,7 +112,7 @@ copyBtn.addEventListener("mouseout", restoreCopyMsg);
 copyBtn.addEventListener("touchend", restoreCopyMsg);
 
 // Escucha eventos de envío de formulario
-form.addEventListener("submit", sendEmail);
+form.addEventListener("submit", formSubmit);
 
 // Escucha eventos de click en el botón de "Cerrar" del modal
 closeModalBtn.addEventListener("click", closeModal);

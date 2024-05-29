@@ -7,8 +7,7 @@
 }
 
 .nav-container {
-    background-color: #111A2780;
-    backdrop-filter: blur(5px);
+    background-color: #111A27AB;
     padding: 15px;
     border-radius: 0px 0px 10px 10px;
 }
@@ -193,6 +192,8 @@
     height: 100dvh;
     background-color: #000A;
     display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -208,12 +209,39 @@
     transition: opacity .6s;
 }
 
+.modal-loader {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #E2E8F0;
+    border-top-color: transparent;
+    position: absolute;
+    opacity: 0;
+    transition: opacity .6s;
+}
+
+.modal-loader.show {
+    opacity: 1;
+    transition: opacity .6s;
+    animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+    to {transform: rotate(360deg);}
+}
+
 .modal {
     box-sizing: border-box;
-    margin: auto;
     width: 80%;
     max-width: 500px;
     padding: 30px;
+    opacity: 0;
+    transition: opacity .6s;
+}
+
+.modal.show {
+    opacity: 1;
+    transition: opacity .6s;
 }
 
 .modal-btn {
@@ -222,12 +250,26 @@
     justify-content: center;
 }
 
+.close-modal:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
 .modal-title, .modal-description, .modal-btn {
     margin: 0;
 }
 
 .modal-description {
     margin: 30px 0;
+}
+
+/* SUPPORTS */
+@supports ((backdrop-filter: none) or (-webkit-backdrop-filter: none)) {
+    .nav-container {
+        background-color: #111A2780;
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
+    }
 }
 
 /* MEDIA QUERIES */
@@ -262,11 +304,19 @@
         font-size: 14px;
     }
 
-    .header {
-        display: none;
+    .title img {
+        width: 60px;
     }
 
-    .contact-email .icon {
+    .social-links .btn img {
+        width: 28px;
+    }
+
+    .contact-email .btn img, .project-info .btn img {
+        width: 35px;
+    }
+
+    .header, .contact-email .icon {
         display: none;
     }
 
@@ -284,5 +334,15 @@
         width: 100%;
         margin-left: 0;
         margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .skills-section {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        grid-template-columns: minmax(0, 1fr);
     }
 }
