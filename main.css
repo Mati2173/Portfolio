@@ -121,6 +121,16 @@ a {
     font-family: inherit;
 }
 
+.input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #0F172A inset !important;
+    -webkit-text-fill-color: #E2E8F0 !important;
+}
+
+.input:-moz-autofill {
+    box-shadow: 0 0 0 30px #0F172A inset !important;
+    text-fill-color: #E2E8F0 !important;
+}
+
 .input:focus {
     border-color: #465C7C;
     outline: none;
