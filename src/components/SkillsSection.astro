@@ -1,0 +1,32 @@
+---
+interface SkillItem {
+	name: string;
+	icon: string;
+	alt: string;
+}
+
+interface SkillCategory {
+	title: string;
+	items: SkillItem[];
+}
+
+interface Props {
+	categories: SkillCategory[];
+}
+
+const { categories } = Astro.props;
+---
+
+{categories.map((category) => (
+	<div>
+		<h3>{category.title}</h3>
+		<div class="skills-section">
+			{category.items.map((skill) => (
+				<div class="style-box sk-item">
+					<img src={skill.icon} alt={skill.alt}>
+					<p>{skill.name}</p>
+				</div>
+			))}
+		</div>
+	</div>
+))}

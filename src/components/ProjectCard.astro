@@ -1,0 +1,34 @@
+---
+interface Project {
+	name: string;
+	description: string;
+	technologies: string[];
+	repository_url: string;
+	image: string;
+	image_alt: string;
+}
+
+interface Props {
+	project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<div class="project">
+	<div class="project-image">
+		<img src={project.image} alt={project.image_alt}>
+	</div>
+	<div class="project-info">
+		<h3 class="project-name">{project.name}</h3>
+		<p class="project-description">{project.description}</p>
+		<h4 class="technologies-title">Tecnologías utilizadas:</h4>
+		<ul class="project-technologies">
+			{project.technologies.map((technology) => <li>{technology}</li>)}
+		</ul>
+		<a class="btn btn-rectangular" href={project.repository_url} target="_blank">
+			<img src="images/icons/source-code.png" alt="Logo Codigo Fuente">
+			<span class="tooltip">Ver Código</span>
+		</a>
+	</div>
+</div>

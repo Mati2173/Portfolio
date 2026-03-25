@@ -1,0 +1,50 @@
+---
+interface SocialLink {
+	url: string;
+	icon: string;
+	alt: string;
+}
+
+interface AboutMe {
+	name: string;
+	description: string;
+	email: string;
+}
+
+interface Props {
+	aboutMe: AboutMe;
+	socialLinks: SocialLink[];
+}
+
+const { aboutMe, socialLinks } = Astro.props;
+---
+
+<section id="about-me">
+	<div class="title">
+		<img src="images/icons/dev.png" alt="Logo Dev">
+		<h1>{aboutMe.name}</h1>
+	</div>
+	<p class="description">{aboutMe.description}</p>
+	<div class="find-me-container">
+		<div class="contact-email">
+			<img class="icon" src="images/icons/email.png" alt="Logo Email">
+			<label for="my-email" hidden>Mi Email</label>
+			<input class="style-box input" id="my-email" readonly value={aboutMe.email}>
+			<a class="btn btn-rectangular" href={`mailto:${aboutMe.email}`} target="_blank">
+				<img src="images/icons/send.png" alt="Logo Enviar">
+				<span class="tooltip">Enviar email</span>
+			</a>
+			<button id="copy-btn" class="btn btn-rectangular">
+				<img src="images/icons/copy.png" alt="Logo Copiar">
+				<span id="copy-tooltip" class="tooltip">Copiar</span>
+			</button>
+		</div>
+		<div class="social-links">
+			{socialLinks.map((link) => (
+				<a class="btn btn-round" href={link.url} target="_blank">
+					<img src={link.icon} alt={link.alt}>
+				</a>
+			))}
+		</div>
+	</div>
+</section>

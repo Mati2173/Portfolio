@@ -1,0 +1,30 @@
+---
+interface Props {
+    lang?: string;
+    title?: string;
+    description?: string;
+}
+const { lang, title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content={description}>
+        <title>{title}</title>
+        <meta name="generator" content={Astro.generator} />
+
+        <link rel="shortcut icon" href="images/M.ico" type="image/x-icon">
+		
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+		
+		<script is:inline type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>

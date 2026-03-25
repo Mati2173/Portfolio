@@ -1,0 +1,40 @@
+---
+---
+
+<section id="contact">
+	<div class="title">
+		<img src="images/icons/contact.png" alt="Logo Contacto">
+		<h2>Contacto</h2>
+	</div>
+	<form class="contact-form">
+		<div class="form-input-container">
+			<label for="first-name">Nombre</label>
+			<input class="style-box input" type="text" name="fst-name" id="first-name" autocomplete="given-name" placeholder="John" required>
+		</div>
+		<div class="form-input-container">
+			<label for="last-name">Apellido</label>
+			<input class="style-box input" type="text" name="lst-name" id="last-name" autocomplete="family-name" placeholder="Doe" required>
+		</div>
+		<div class="form-input-container">
+			<label for="email">E-mail</label>
+			<input class="style-box input" type="email" name="email" id="email" autocomplete="email" placeholder="ejemplo@email.com" required>
+		</div>
+		<div class="form-input-container">
+			<label for="message">Mensaje</label>
+			<textarea class="style-box input" name="message" id="message" rows="5" placeholder="Deja acá tu mensaje" required></textarea>
+		</div>
+		<div class="form-input-container">
+			<input class="btn btn-rectangular input-btn" type="submit" value="Enviar">
+		</div>
+	</form>
+	<div class="modal-container">
+		<div class="modal-loader"></div>
+		<div class="modal style-box">
+			<h2 class="modal-title">Hola, <span class="modal-client-name"></span>!</h2>
+			<p class="modal-description"></p>
+			<div class="modal-btn">
+				<button class="btn btn-rectangular close-modal">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</section>
